@@ -36,24 +36,25 @@ const CreateUser: React.FC<CreateUserProps> = (props) => {
 
     const _roles = await getAllRole(1);
     if (_roles) {
-      if (user.role_id.name !== usersRoles.SuperAdmin) {
-        setRoles(
-          _roles.Role.results.filter(
-            (res: Role) => res.name !== usersRoles.SuperAdmin
-          )
-        );
-      } else setRoles(_roles.Role.results);
+      setRoles(_roles.Role)
+      // if (user.role_id.name !== usersRoles.SuperAdmin) {
+      //   setRoles(
+      //     _roles.Role.results.filter(
+      //       (res: Role) => res.name !== usersRoles.SuperAdmin
+      //     )
+      //   );
+      // } else setRoles(_roles.Role.results);
     }
 
-    const _deps = await getAllDepartment(1);
-    if (_deps) {
-      setDepartments(_deps.Department.results);
-    }
+    // const _deps = await getAllDepartment(1);
+    // if (_deps) {
+    //   setDepartments(_deps.Department.results);
+    // }
 
-    const _zones = await getAllZone();
-    if (_zones) {
-      setZones(_zones.Zone.results);
-    }
+    // const _zones = await getAllZone();
+    // if (_zones) {
+    //   setZones(_zones.Zone.results);
+    // }
   }, []);
 
   useEffect(() => {

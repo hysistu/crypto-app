@@ -33,8 +33,20 @@ export const getAllRole = async (
   params: number
 ): Promise<any | ErrorInterface> => {
   try {
-    const response = await api.get(`${ROLE_URL}/?page=${params}`);
-    return { Role: response.data.data };
+    const role = [
+  { id: "admin",
+    name: "admin",
+    description: "Admin",
+  },
+  { id: "user",
+    name: "user",
+    description: "User i thjeshte",
+  },
+  // Add more items as needed
+];
+    // const response = await api.get(`${ROLE_URL}/?page=${params}`);
+    return { Role: role };
+    // return role
   } catch (e: any) {
     return e.response.data;
   }

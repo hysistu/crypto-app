@@ -15,6 +15,7 @@ export interface User {
   password?: string;
   department_id?: Department | string;
   role_id?: Role | string;
+  role?: Role | string;
   zone_id?: Zone | string;
   isActive?: boolean | undefined;
   first_source?: any;
@@ -24,12 +25,12 @@ export interface User {
 export const USER_URL = "users";
 
 export const userSchema = yup.object({
-  first_name: yup
+  firstName: yup
     .string()
     .min(2, "First Name should be of minimum 2 characters length")
     .required("First Name is required")
     .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
-  last_name: yup
+  lastName: yup
     .string()
     .min(2, "Last Name should be of minimum 2 characters length")
     .required("Last Name is required")
@@ -38,9 +39,11 @@ export const userSchema = yup.object({
     .string()
     .email("Should be an valid email")
     .required("Email is required"),
-  zone_id: yup.string().required("Zone is required"),
-  department_id: yup.string().required("Department is required"),
-  role_id: yup.string().required("Role is required"),
+  // zone_id: yup.string().required("Zone is required"),
+  // department_id: yup.string().required("Department is required"),
+  // role_id: yup.string().required("Role is required"),
+  role: yup.string().required("Role is required"),
+
 });
 
 export const USER_UPDATED = "Perdoruesi eshte azhurnuar";

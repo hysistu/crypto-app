@@ -10,7 +10,7 @@ import { Zone } from "components/Zone/Interface";
 import { Department } from "components/Department/Interface";
 
 import { getOneUser, updateUser, addUser } from "requests/user";
-// import { getAllRole } from "requests/role";
+import { getAllRole } from "requests/role";
 // import { getAllDepartment } from "requests/departament";
 // import { getAllZone } from "requests/zones";
 import { usersRoles } from "src/utils/usersRoles";
@@ -29,16 +29,17 @@ const UserPage = () => {
       setData(_user.response);
     }
 
-    // const _roles: any = await getAllRole(1);
-    // if (_roles) {
-    //   setRoles(
-    //     user?.role !== usersRoles.admin
-    //       ? _roles.Role.results.filter(
-    //           (role: any) => role.name !== usersRoles.admin
-    //         )
-    //       : _roles.Role.results
-    //   );
-    // }
+    const _roles: any = await getAllRole(1);
+    console.log(_roles.Role, 'rolll')
+    if (_roles) {
+      setRoles(_roles.Role
+        // user?.role !== usersRoles.admin
+        //   ? _roles.Role.results.filter(
+        //       (role: any) => role.name !== usersRoles.admin
+        //     )
+        //   : _roles.Role.results
+      );
+    }
 
     // const _deps = await getAllDepartment(1);
     // if (_deps) {

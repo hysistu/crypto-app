@@ -53,7 +53,7 @@ const Form: FC<FormProps> = ({
       email: "",
       password: "",
       department_id: "",
-      role_id: "",
+      role: "",
       zone_id: "",
       isActive: true,
     },
@@ -158,7 +158,7 @@ const Form: FC<FormProps> = ({
         />
         <SelectMUI
           label={"Role"}
-          name={"role_id"}
+          name={"role"}
           options={roles}
           formAction={formAction}
         />
