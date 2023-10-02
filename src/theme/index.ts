@@ -62,7 +62,7 @@ const theme = createTheme({
     mode: "light",
   },
   shape: {
-    borderRadius: 8,
+    borderRadius: 0,
   },
 });
 

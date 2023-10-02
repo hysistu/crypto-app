@@ -39,19 +39,18 @@ const NavItemButtonStyled: React.FC<any> = (props) => {
         sx={{
           px: 3,
           py: 1.3,
-          minWidth: 180,
+          minWidth: "100%",
           fontSize: "16px",
           textTransform: "none",
           border: "1px solid",
-          borderColor: "#fff",
-          color: sameRoute || parent ? "#fff" : colors.dark,
-          backgroundColor: sameRoute || parent ? "#467DEC" : "",
+          borderRadius: "0 !important",
+          borderColor: "transparent",
+          color: "white",
+          backgroundColor: "transparent",
           "&:hover": {
-            backgroundColor: sameRoute ? "#467DEC" : "rgba(35, 86, 246, 0.1)",
-            color: sameRoute ? "#fff" : (theme) => theme.palette.primary.main,
-            borderColor: sameRoute
-              ? "#fff"
-              : (theme) => theme.palette.primary.main,
+            backgroundColor: "transparent",
+            color: "white",
+            borderColor: "transparent",
           },
         }}
       >
@@ -61,20 +60,19 @@ const NavItemButtonStyled: React.FC<any> = (props) => {
       <Link href={route}>
         <Button
           component="a"
-          startIcon={sameRoute || parent ? activeIcon : icon}
+          startIcon={sameRoute || parent ? icon : icon}
           sx={{
             px: 3,
             py: 1.3,
-            minWidth: 180,
+            minWidth: "100%",
             fontSize: "16px",
             textTransform: "none",
-            border: "1px solid",
             borderColor: "#fff",
-            color: sameRoute || parent ? "#fff" : colors.dark,
-            backgroundColor: sameRoute || parent ? "#467DEC" : "",
+            color: sameRoute || parent ? "black" : "white",
+            backgroundColor: sameRoute || parent ? "white" : "",
             "&:hover": {
-              backgroundColor: sameRoute ? "#467DEC" : "rgba(35, 86, 246, 0.1)",
-              color: sameRoute ? "#fff" : (theme) => theme.palette.primary.main,
+              backgroundColor: sameRoute ? "transparent" : "white",
+              color: sameRoute || parent ? "white" : "black",
               borderColor: sameRoute
                 ? "#fff"
                 : (theme) => theme.palette.primary.main,
@@ -177,9 +175,9 @@ const NavItem: React.FC<NavItemProps> = (props) => {
             display: "flex",
             flexDirection: "column",
             alignItems: "start",
+            borderRadius: "0  !important",
             mx: "auto",
-            width: `calc(100% - ${40}px)`,
-            borderBottom: `1.5px solid ${colors.borderColor}`,
+            width: "100%",
             ":last-of-type": {
               borderBottom: "none",
             },

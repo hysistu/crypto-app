@@ -2,12 +2,7 @@ import { Box, IconButton, styled, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import LeftSidebar from "./components/LeftSidebar";
-import RightSidebar from "./components/RightSidebar";
-import {
-  navbarHeight,
-  sidebarWidth,
-  rightSidebarWidth,
-} from "src/utils/sidebarController";
+import { navbarHeight, sidebarWidth } from "src/utils/sidebarController";
 import { colors } from "src/utils/colors";
 import { IconArrowHorizontally } from "components/svg/icons";
 
@@ -41,11 +36,6 @@ const Layout: React.FC<LayoutProps> = (props) => {
   return (
     <LayoutRoot
       sx={{
-        width: {
-          lg: `calc(100% - ${leftSidebarOpen ? sidebarWidth : 0}px - ${
-            rightSidebarOpen ? rightSidebarWidth : 0
-          }px)`,
-        },
         transition: `all 225ms cubic-bezier(0, 0, 0.2, 1) 0ms`,
         marginLeft: {
           lg: `${leftSidebarOpen ? sidebarWidth : 0}px`,
@@ -94,27 +84,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
           >
             <IconArrowHorizontally fontSize="small" />
           </IconButton>
-          <IconButton
-            sx={{
-              zIndex: (theme) => theme.zIndex.appBar + 101,
-              width: "40px",
-              height: "40px",
-              position: "fixed",
-              right: rightSidebarOpen
-                ? `calc(${rightSidebarWidth}px - 20px)`
-                : 0,
-              top: "200px",
-              border: `1px solid ${colors.borderColor}`,
-              transform: rightSidebarOpen ? "rotate(180deg)" : "",
-              display: { xs: "none", lg: "inline-flex" },
-              backgroundColor: "#fff",
-            }}
-            onClick={() => {
-              setRightSidebarOpen(!rightSidebarOpen);
-            }}
-          >
-            <IconArrowHorizontally fontSize="small" />
-          </IconButton>
+
           {children}
         </Box>
       </Box>
@@ -126,10 +96,10 @@ const Layout: React.FC<LayoutProps> = (props) => {
         rightSidebarOpen={rightSidebarOpen}
       />
       <LeftSidebar setSidebarOpen={setLeftSidebarOpen} open={leftSidebarOpen} />
-      <RightSidebar
+      {/* <RightSidebar
         setSidebarOpen={setRightSidebarOpen}
         open={rightSidebarOpen}
-      />
+      /> */}
     </LayoutRoot>
   );
 };

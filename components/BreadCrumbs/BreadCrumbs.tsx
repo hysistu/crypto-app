@@ -45,7 +45,7 @@ const BreadCrumbs: React.FC<Props> = (props) => {
           backgroundColor: "#F5F5F5",
           py: 0.2,
           px: 1,
-          borderRadius: 9.5,
+          // borderRadius: 9.5,
           color: theme.palette.secondary.main,
           fontSize: 12,
           fontWeight: 500,

@@ -49,51 +49,27 @@ const HeaderAddAction = () => {
   return (
     <>
       <Fade direction="down" triggerOnce>
-        <Box
-          display="flex"
-          alignItems="center"
-          flexWrap="wrap"
-          justifyContent="space-between"
-        >
-          <Box>
-            <Box
-              display="flex"
-              justifyContent="start"
-              alignItems="center"
-              gap="5px"
-            >
-              <Typography fontSize={16} fontWeight={400}>
-                <IconHi />
-              </Typography>
-              <Typography fontSize={16} fontWeight={400}>
-                Hello
-              </Typography>
-              <Typography fontSize={16} fontWeight={700}>
-                {user?.first_name}
-              </Typography>
-            </Box>
-            <Typography fontSize={14} fontWeight={400} color="secondary">
-              Shield will help you track the safety of space and your workers
+        <Box>
+          <Box
+            display="flex"
+            justifyContent="start"
+            alignItems="center"
+            gap="5px"
+          >
+            <Typography fontSize={16} fontWeight={400}>
+              <IconHi />
+            </Typography>
+            <Typography fontSize={16} fontWeight={400}>
+              Hello
+            </Typography>
+            <Typography fontSize={16} fontWeight={700}>
+              {user?.firstName}
             </Typography>
           </Box>
-          <Box alignSelf="flex-end" sx={{ mt: { xs: 2, sm: 0 } }}>
-            <Button
-              variant="contained"
-              startIcon={<IconAdd />}
-              sx={{ textTransform: "none", ml: { lg: 1.5 } }}
-              onClick={() => setAddModalOpen(true)}
-              disableElevation
-            >
-              Add
-            </Button>
-          </Box>
+          <Typography fontSize={14} fontWeight={400} color="secondary">
+            Lorem ipsum dolor sit amet consectetur.
+          </Typography>
         </Box>
-        <AddModal
-          addModalOpen={addModalOpen}
-          setAddModalOpen={setAddModalOpen}
-          addModalData={addModalData}
-          modalsOpenHandler={modalsOpenHandler}
-        />
       </Fade>
     </>
   );
