@@ -21,7 +21,6 @@ const UsersPage: NextPage = () => {
     "User",
     _page
   );
-
   return (
     <Layout title="Users">
       <ReusableTable
