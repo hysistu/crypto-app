@@ -1,0 +1,10 @@
+{
+  "icon": true,
+  "typescript": true,
+  "expandProps": "start",
+  "svgProps": {
+    "version": "1.1",
+    "className": "{svgClasses}"
+  },
+  "ignoreExisting": true
+}

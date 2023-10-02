@@ -1,0 +1,5 @@
+export const BASE_URL_API = process.env.NEXT_PUBLIC_BASE_URL_API;
+export const BASE_URL_INCIDENT_API = process.env.NEXT_PUBLIC_BASE_URL_INCIDENT_API;
+export const BASE_URL_SCHEDULE_API = process.env.NEXT_PUBLIC_BASE_URL_SCHEDULE_API;
+export const SOCKET_API = process.env.NEXT_PUBLIC_BASE_URL_SOCKET_API;
+// export const BASE_DOMAIN = process.env.NEXT_PUBLIC_BASE_DOMAIN;
