@@ -4,6 +4,7 @@ import Layout from "components/Layout";
 import useAuth from "context/useAuth";
 import { useRouter } from "next/router";
 import IncidentsContainer from "containers/IncidentsContainer";
+import TaskBoardContainer from "containers/TaskBoardContainer";
 
 const IncidentsPage: NextPage = () => {
   const router = useRouter();
@@ -16,8 +17,8 @@ const IncidentsPage: NextPage = () => {
   }, [user, loading]);
 
   return (
-    <Layout title="Incidents">
-      <IncidentsContainer />
+    <Layout title="Track Status">
+      <TaskBoardContainer />
     </Layout>
   );
 };
