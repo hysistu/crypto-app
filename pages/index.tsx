@@ -159,7 +159,7 @@ const HomePage: NextPage = () => {
                       },
                     }}
                   >
-                    Shield
+                    Crypto
                   </Typography>
                 </Box>
               </Box>
@@ -223,7 +223,7 @@ const HomePage: NextPage = () => {
                     fontSize="31px"
                     lineHeight="37.2px"
                   >
-                    Shield
+                    Crypto
                   </Typography>
                 </Typography>
                 <Typography

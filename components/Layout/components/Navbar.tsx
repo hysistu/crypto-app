@@ -113,7 +113,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
                   color={colors.primary}
                   ml={2}
                 >
-                  Shield
+                  Crypto
                 </Typography>
               </Box>
             </Link>

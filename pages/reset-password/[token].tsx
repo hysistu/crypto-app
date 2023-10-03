@@ -162,7 +162,7 @@ const ResetPassword = () => {
                       },
                     }}
                   >
-                    Shield
+                    Crypto
                   </Typography>
                 </Box>
               </Box>

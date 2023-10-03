@@ -172,7 +172,7 @@ const CostumerPage: NextPage = () => {
             color={colors.primary}
             ml={2}
           >
-            Shield
+            Crypto
           </Typography>
         </Box>
       </Box>

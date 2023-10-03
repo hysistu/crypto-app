@@ -133,6 +133,7 @@ function Taskboard() {
                 if (draftItem) {
                   draftItem.title = values.title;
                   draftItem.description = values.description;
+                  draftItem.user = values.user;
                 }
               } else {
                 // Adding new item as "to do"

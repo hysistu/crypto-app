@@ -1,10 +1,10 @@
-import React from 'react';
-import { Button, Card, Modal, Typography, Dropdown, Menu } from 'antd';
-import { TaskboardItem, TaskboardItemStatus } from './TaskboardTypes';
-import { DeleteOutlined, EditOutlined, MoreOutlined } from '@ant-design/icons';
-import { red } from '@ant-design/colors';
-import styled from 'styled-components';
-import BaseTooltip from '../shared/BaseTooltip';
+import React from "react";
+import { Button, Card, Modal, Typography, Dropdown, Menu } from "antd";
+import { TaskboardItem, TaskboardItemStatus } from "./TaskboardTypes";
+import { DeleteOutlined, EditOutlined, MoreOutlined } from "@ant-design/icons";
+import { red } from "@ant-design/colors";
+import styled from "styled-components";
+import BaseTooltip from "../shared/BaseTooltip";
 
 interface StyledCardProps {
   $isDragging: boolean;
@@ -13,7 +13,7 @@ interface StyledCardProps {
 const StyledCard = styled(Card)<StyledCardProps>`
   margin: 0.5rem;
   padding: 0.5rem;
-  background-color: ${({ $isDragging }) => ($isDragging ? '#fafafa' : '#fff')};
+  background-color: ${({ $isDragging }) => ($isDragging ? "#fafafa" : "#fff")};
 `;
 
 const TaskboardItemCardTitle = styled(Typography.Title)`
@@ -67,14 +67,17 @@ function TaskboardItemCard({
         <Dropdown
           overlay={
             <Menu>
-              <Menu.Item icon={<EditOutlined />} onClick={() => onEdit(item)}>
+              <Menu.Item
+                icon={<EditOutlined rev={undefined} />}
+                onClick={() => onEdit(item)}
+              >
                 Edit
               </Menu.Item>
               <DeleteMenuItem
-                icon={<DeleteOutlined />}
+                icon={<DeleteOutlined rev={undefined} />}
                 onClick={() =>
                   Modal.confirm({
-                    title: 'Delete?',
+                    title: "Delete?",
                     content: `Are you sure to delete "${item.title}"?`,
                     onOk: () =>
                       onDelete({
@@ -88,9 +91,9 @@ function TaskboardItemCard({
               </DeleteMenuItem>
             </Menu>
           }
-          trigger={['click']}
+          trigger={["click"]}
         >
-          <Button size="small" icon={<MoreOutlined />} />
+          <Button size="small" icon={<MoreOutlined rev={undefined} />} />
         </Dropdown>
       }
     >

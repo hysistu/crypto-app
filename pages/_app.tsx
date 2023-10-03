@@ -26,7 +26,7 @@ const MyApp: React.FC<MyAppProps> = (props) => {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <title>Shield - SuperAdmin</title>
+        <title>Crypto - SuperAdmin</title>
       </Head>
       <AuthProvider>
         <LocalizationProvider dateAdapter={AdapterDateFns}>

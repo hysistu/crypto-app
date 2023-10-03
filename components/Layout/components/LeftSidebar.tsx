@@ -33,7 +33,7 @@ const items = [
   {
     mainRoutes: [
       {
-        route: "/ticket",
+        route: "/case",
         icon: <PlaylistAddCheckIcon />,
         activeIcon: <PlaylistAddCheckIcon />,
         title: "Case ID",
