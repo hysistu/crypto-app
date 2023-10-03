@@ -93,6 +93,7 @@ function Taskboard() {
     () => ({
       title: itemToEdit?.title ?? "",
       description: itemToEdit?.description ?? "",
+      user: itemToEdit?.user ?? "",
     }),
     [itemToEdit]
   );

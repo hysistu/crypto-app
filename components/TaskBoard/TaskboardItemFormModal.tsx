@@ -37,7 +37,7 @@ function TaskboardItemFormModal({
 
   const optionsss = data.map((entry) => {
     return {
-      value: entry._id,
+      value: entry.firstName + " " + entry.lastName,
       label: entry.firstName + " " + entry.lastName,
     };
   });
