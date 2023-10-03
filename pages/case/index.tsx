@@ -1,11 +1,12 @@
 import Layout from "components/Layout";
+import CaseContainer from "containers/CaseContainer";
 import TicketContainer from "containers/TicketContainer";
 import React from "react";
 
 const Ticket = () => {
   return (
-    <Layout title="Tickets">
-      <TicketContainer />
+    <Layout title="Case ID">
+      <CaseContainer />
     </Layout>
   );
 };

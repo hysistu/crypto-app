@@ -1,0 +1,54 @@
+#case {
+  .allbox {
+    padding: 15px;
+    border-radius: 12px;
+    border: 0.3px solid #00000012;
+    box-shadow: 10px 10px 2px #00000012;
+
+    .button {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .buttoni {
+        padding: 8px 15px;
+        border-radius: 20px;
+        background-color: rgb(100, 139, 165);
+        color: #fff;
+      }
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      .text {
+        h6 {
+          font-size: 15px;
+          line-height: 25px;
+          opacity: 0.6;
+        }
+        h5 {
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 28px;
+        }
+        p {
+          font-size: 13px;
+          line-height: 23px;
+        }
+      }
+      .price {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        .blue {
+          color: blue;
+        }
+        .red {
+          color: red;
+        }
+      }
+    }
+  }
+}

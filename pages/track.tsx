@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import IncidentsContainer from "containers/IncidentsContainer";
 import TaskBoardContainer from "containers/TaskBoardContainer";
 
-const IncidentsPage: NextPage = () => {
+const TrackPage: NextPage = () => {
   const router = useRouter();
   const { user, loading } = useAuth();
 
@@ -23,4 +23,4 @@ const IncidentsPage: NextPage = () => {
   );
 };
 
-export default IncidentsPage;
+export default TrackPage;

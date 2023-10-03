@@ -49,7 +49,7 @@ const items = [
         title: "Notification",
       },
       {
-        route: "/incidents",
+        route: "/track",
         icon: <IconIncidentNavbar />,
         activeIcon: <IconIncidentNavbarColor />,
         title: "Track Status",
