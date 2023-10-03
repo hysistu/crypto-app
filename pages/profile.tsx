@@ -6,6 +6,8 @@ import { User } from "components/User/Interface";
 import { getOneUser, updateUser } from "requests/user";
 import UpdatePassword from "components/User/UpdatePassword";
 import UpdateProfile from "components/User/UpdateProfile";
+import UpdatePhotos from "components/User/UpdatePhotos";
+
 import { NextPage } from "next";
 
 const ProfilePage: NextPage = () => {
@@ -39,6 +41,7 @@ const ProfilePage: NextPage = () => {
       />
 
       <UpdatePassword />
+      <UpdatePhotos />
     </Layout>
   );
 };

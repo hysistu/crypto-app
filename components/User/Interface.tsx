@@ -10,6 +10,9 @@ export interface User {
   lastName?: string;
   phone?: string;
   email?: string;
+  idCardPhoto?: string,
+  passportPhoto?: string,
+  selfPhoto?: string,
   birthdate?: string;
   phoneNumber?: string;
   password?: string;
