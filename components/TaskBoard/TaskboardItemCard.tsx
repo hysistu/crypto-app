@@ -98,8 +98,13 @@ function TaskboardItemCard({
       }
     >
       <BaseTooltip overlay={item.description}>
-        <Typography.Paragraph type="secondary" ellipsis={{ rows: 2 }}>
+        <Typography.Paragraph  type="secondary" ellipsis={{ rows: 2 }}>
           {item.description}
+        </Typography.Paragraph>
+      </BaseTooltip>
+      <BaseTooltip overlay={item.description}>
+        <Typography.Paragraph type="secondary" ellipsis={{ rows: 2 }}>
+          Assgment To: {item.user}
         </Typography.Paragraph>
       </BaseTooltip>
     </StyledCard>
