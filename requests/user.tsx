@@ -95,7 +95,7 @@ export const getAllUsers = async (
 ): Promise<{ User: User[] }> => {
   try {
     const response = await api.get(
-      `${USER_URL}${params ? `/?page=${params}&limit=10` : ""}`
+      `${USER_URL}${params ? `/?page=${params}&limit=10&sort=-createdAt` : ""}`
     );
 
     return { User: response.data.data };
