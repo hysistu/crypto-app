@@ -27,6 +27,7 @@ interface AuthContextType {
   login: (email: string, password: string) => void;
   logout: () => void;
   setUserAfterUpdate: () => void;
+  setUserAfterUpdateWithoutToken: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | any>({} as AuthContextType);
@@ -60,11 +61,19 @@ export function AuthProvider({
     }
   };
 
+  const setUserAfterUpdateWithoutToken = (User: User) => {
+    setUser(User);
+    localStorage.setItem("user", JSON.stringify(User));
+    if (router.pathname === "/") {
+      router.push("/dashboard");
+    }
+  };
+
   const setUserAfterUpdate = (token: string) => {
-    const decoded: User = decode(token);
-    setUser(decoded);
+    const decoded: User | any = decode(token);
+    setUser(decoded?._doc);
     localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(decoded));
+    localStorage.setItem("user", JSON.stringify(decoded._doc));
     if (router.pathname === "/") {
       router.push("/dashboard");
     }
@@ -116,6 +125,7 @@ export function AuthProvider({
       login,
       logout,
       setUserAfterUpdate,
+      setUserAfterUpdateWithoutToken
     }),
     [user, loading, error]
   );

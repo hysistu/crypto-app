@@ -37,13 +37,13 @@ export const forgotPassword = async (params: {
   }
 };
 export const updatePassword = async (params: {
-  oldPassword: string;
-  newPassword: string;
-  confirmPassword: string;
+  passwordCurrent: string;
+  password: string;
+  passwordConfirm: string;
 }): Promise<any | ErrorInterface> => {
   try {
-    const response = await api.post("auth/updatePassword", params);
-    return { result: response.data };
+    const response = await api.patch(`${USER_URL}/updateMyPassword`, params);
+    return { token: response.data };
   } catch (e: any) {
     return {
       error: true,
@@ -133,6 +133,20 @@ export const updateUser = async (
 };
 export const updateMe = async (
   params: User
+): Promise<{ User: Response } | ErrorInterface> => {
+  try {
+    const response = await api.patch(
+      `${USER_URL}/updateMe`,
+      params
+    );
+    // console.log(response.data, 'cccc');
+    return { User: response.data.user};
+  } catch (e: any) {
+    return e.response.data;
+  }
+};
+export const updateMyPassword = async (
+  params: User
 ): Promise<{ token: Response } | ErrorInterface> => {
   try {
     const response = await api.patch(
@@ -145,14 +159,14 @@ export const updateMe = async (
   }
 };
 export const getMe = async (
-  params: User
+  // params: User
 ): Promise<{ token: Response } | ErrorInterface> => {
   try {
-    const response = await api.patch(
+    const response = await api.get(
       `${USER_URL}/me`,
-      params
+      // params
     );
-    return { token: response.data.data };
+    return  response.data.data ;
   } catch (e: any) {
     return e.response.data;
   }

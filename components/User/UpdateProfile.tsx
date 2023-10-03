@@ -10,6 +10,8 @@ import {
 } from "./Interface";
 import InputMUI from "components/Form/Input";
 import SubmitForm from "components/Form/Button";
+import { getMe, updateMe, updateMyPassword } from "requests/user";
+
 import { colors } from "src/utils/colors";
 import useAuth from "context/useAuth";
 
@@ -20,9 +22,11 @@ export type FormProps = {
 };
 
 const UpdateProfile: FC<FormProps> = ({ model, actionUpdate, reloadData }) => {
-  const { setUserAfterUpdate } = useAuth();
+  const { setUserAfterUpdateWithoutToken } = useAuth();
   const [newModel, setNewModel] = useState<boolean>(false);
+  const [data, setData] = useState<User | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(false);
+
   const formAction = useFormik<User>({
     initialValues: {
       firstName: "",
@@ -34,15 +38,15 @@ const UpdateProfile: FC<FormProps> = ({ model, actionUpdate, reloadData }) => {
     onSubmit: async (values) => {
       setLoading(true);
       try {
-        actionUpdate(values).then((data: any) => {
+        updateMe(values).then((data: any) => {
           if (data.status === 0) {
             toast.error(USER_SOME_ERROR_ACCURED);
           } else {
             toast.success(USER_UPDATED);
-            setUserAfterUpdate(data.token);
+            setUserAfterUpdateWithoutToken(data.User);
             reloadData();
           }
-          setLoading(false);
+          setLoading(false); 
         });
       } catch (e: any) {
         toast.error(e.message);
@@ -52,13 +56,26 @@ const UpdateProfile: FC<FormProps> = ({ model, actionUpdate, reloadData }) => {
   });
 
   useEffect(() => {
-    if (model) {
-      formAction.setValues(model);
+    try {
+        getMe().then((data: any) => {
+          if (data.status === 0) {
+            toast.error(USER_SOME_ERROR_ACCURED);
+          } else {
+            setData(data.data); 
+          }
+          setLoading(false);
+        });
+      } catch (e: any) {
+        toast.error(e.message);
+        setLoading(false);
+      }
+    if (data) {
+      formAction.setValues(data);
       setNewModel(false);
     } else {
       setNewModel(true);
     }
-  }, [model]);
+  }, [data?.firstName]);
   return (
     <>
       <Box

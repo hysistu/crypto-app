@@ -6,18 +6,20 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { updatePassword } from "requests/user";
 import { colors } from "src/utils/colors";
+import useAuth from "context/useAuth";
+
 import * as yup from "yup";
 
 const validationSchema = yup.object({
-  oldPassword: yup
+  passwordCurrent: yup
     .string()
     .min(8, "Password should be of minimum 8 characters length")
     .required("Password is required"),
-  newPassword: yup
+  password: yup
     .string()
     .min(8, "New password should be of minimum 8 characters length")
     .required("New password is required"),
-  confirmPassword: yup
+  passwordConfirm: yup
     .string()
     .min(8, "Confirm new password should be of minimum 8 characters length")
     .required("Confirm new password is required"),
@@ -25,19 +27,22 @@ const validationSchema = yup.object({
 
 const UpdatePassword = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const { setUserAfterUpdate } = useAuth();
+
   const formAction = useFormik<any>({
     initialValues: {
-      oldPassword: "",
-      newPassword: "",
-      confirmPassword: "",
+      passwordCurrent: "",
+      password: "",
+      passwordConfirm: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
       setLoading(true);
       try {
         updatePassword(values).then((data) => {
-          if (data?.result?.status === 1) {
-            toast.success(data.result.message);
+          if (data?.token?.status === 'success') {
+            toast.success('Passwordi u ndryshua me sukses');
+            setUserAfterUpdate(data.token.token)
             resetForm();
           } else if (data?.error) {
             toast.error(data.message);
@@ -74,21 +79,21 @@ const UpdatePassword = () => {
         label={"Old Password"}
         type={"password"}
         placeholder={"Old Password"}
-        name={"oldPassword"}
+        name={"passwordCurrent"}
         formAction={formAction}
       />
       <InputMUI
         label={"New Password"}
         type={"password"}
         placeholder={"New Password"}
-        name={"newPassword"}
+        name={"password"}
         formAction={formAction}
       />
       <InputMUI
         label={"Confirm New Password"}
         type={"password"}
         placeholder={"Confirm New Password"}
-        name={"confirmPassword"}
+        name={"passwordConfirm"}
         formAction={formAction}
       />
       <SubmitForm
