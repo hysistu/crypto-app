@@ -13,7 +13,7 @@ import { LoadingButton } from "@mui/lab";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import useAuth from "context/useAuth";
-import imgbg from "../src/assets/images/indexbg.png";
+import imgbg from "../src/assets/images/indexbg.jpg";
 import allright from "../src/assets/images/allrights.png";
 import Link from "next/link";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -235,7 +235,7 @@ const HomePage: NextPage = () => {
                   lineHeight="19.2px"
                   color="#262B2B"
                 >
-                  Occupational Health & Safety Management System
+                  Welcome to best App of Crypto
                 </Typography>
               </Box>
               <Typography
@@ -438,7 +438,7 @@ const HomePage: NextPage = () => {
                     },
                   }}
                 >
-                  Prishtina Mall SHA&quot; All Rights Reserved. 2021
+                  All Rights Reserved by Crypto
                 </Typography>
               </Box>
             </Box>

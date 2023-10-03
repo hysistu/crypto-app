@@ -368,7 +368,7 @@ const ResetPassword = () => {
                     },
                   }}
                 >
-                  Prishtina Mall SHA&quot; All Rights Reserved. 2021
+                  All Rights Reserved by Crypto
                 </Typography>
               </Box>
             </Box>

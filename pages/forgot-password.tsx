@@ -3,7 +3,7 @@ import { Box, FormLabel, Grid, TextField, Typography } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import imgbg from "../src/assets/images/indexbg.png";
+import imgbg from "../src/assets/images/indexbg.jpg";
 import allright from "../src/assets/images/allrights.png";
 import { forgotPassword } from "requests/user";
 import { useEffect, useState } from "react";
@@ -335,7 +335,7 @@ const ForgotPasswordPage: NextPage = () => {
                     },
                   }}
                 >
-                  Prishtina Mall SHA&quot; All Rights Reserved. 2021
+                  All Rights Reserved by Crypto
                 </Typography>
               </Box>
             </Box>

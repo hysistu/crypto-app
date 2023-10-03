@@ -7,7 +7,7 @@ const CardCrypto = (cardData: any) => {
       <Grid container spacing={5} mt={3}>
         {cardData.cardData?.map((entry: any, index: any) => (
           <Grid item key={index} xs={12} md={6} lg={4}>
-            <Box className="allbox">
+            <Box className="allboxi">
               <Box className="header">
                 <Box className="text">
                   <Typography variant="h6">{entry.team}</Typography>
