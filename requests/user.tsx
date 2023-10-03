@@ -76,7 +76,7 @@ export const addUser = async (
   params: User
 ): Promise<{ response: Response } | ErrorInterface> => {
   try {
-    const response = await api.post(USER_URL, params);
+    const response = await api.post(`${USER_URL}/signup`, params);
     return { response: response.data.data };
   } catch (e: any) {
     return e.response.data;
@@ -124,6 +124,32 @@ export const updateUser = async (
   try {
     const response = await api.patch(
       `${USER_URL}/${params._id || params.id}`,
+      params
+    );
+    return { token: response.data.data };
+  } catch (e: any) {
+    return e.response.data;
+  }
+};
+export const updateMe = async (
+  params: User
+): Promise<{ token: Response } | ErrorInterface> => {
+  try {
+    const response = await api.patch(
+      `${USER_URL}/updateMe`,
+      params
+    );
+    return { token: response.data.data };
+  } catch (e: any) {
+    return e.response.data;
+  }
+};
+export const getMe = async (
+  params: User
+): Promise<{ token: Response } | ErrorInterface> => {
+  try {
+    const response = await api.patch(
+      `${USER_URL}/me`,
       params
     );
     return { token: response.data.data };

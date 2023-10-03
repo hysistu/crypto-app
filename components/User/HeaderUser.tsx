@@ -54,6 +54,14 @@ export function useUserColumns<Array>(
       valueGetter: (params: GridValueGetterParams) =>
         `${params.row?.phoneNumber || ""}`,
     },
+    //     {
+    //   field: "birthdate",
+    //   headerName: "Birthdate",
+    //   flex: 1,
+    //   minWidth: 150,
+    //   valueGetter: (params: GridValueGetterParams) =>
+    //     `${params.row?.birthdate || ""}`,
+    // },
         {
       field: "isActive",
       headerName: "Is Active",

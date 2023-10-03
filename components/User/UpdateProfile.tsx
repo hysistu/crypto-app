@@ -25,8 +25,8 @@ const UpdateProfile: FC<FormProps> = ({ model, actionUpdate, reloadData }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const formAction = useFormik<User>({
     initialValues: {
-      first_name: "",
-      last_name: "",
+      firstName: "",
+      lastName: "",
       email: "",
     },
 
@@ -82,13 +82,13 @@ const UpdateProfile: FC<FormProps> = ({ model, actionUpdate, reloadData }) => {
         <InputMUI
           label={"First Name"}
           placeholder={"first name"}
-          name={"first_name"}
+          name={"firstName"}
           formAction={formAction}
         />
         <InputMUI
           label={"Last Name"}
           placeholder={"last name"}
-          name={"last_name"}
+          name={"lastName"}
           formAction={formAction}
         />
         <InputMUI

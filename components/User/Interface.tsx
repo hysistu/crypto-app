@@ -13,14 +13,15 @@ export interface User {
   birthdate?: string;
   phoneNumber?: string;
   password?: string;
-  department_id?: Department | string;
-  role_id?: Role | string;
+  passwordConfirm?: string;
+  // department_id?: Department | string;
+  // role_id?: Role | string;
   role?: Role | string;
-  zone_id?: Zone | string;
+  // zone_id?: Zone | string;
   isActive?: boolean | undefined;
-  first_source?: any;
-  primary_email?: any;
-  primary_phone?: any;
+  // first_source?: any;
+  // primary_email?: any;
+  // primary_phone?: any;
 }
 export const USER_URL = "users";
 

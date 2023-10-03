@@ -51,10 +51,11 @@ const Form: FC<FormProps> = ({
       phoneNumber: "",
       birthdate: "",
       email: "",
-      password: "",
-      department_id: "",
+      password: "123456789case",
+      passwordConfirm: "123456789case",
+      // department_id: "",
       role: "",
-      zone_id: "",
+      // zone_id: "",
       isActive: true,
     },
     validationSchema: userSchema,
@@ -143,13 +144,13 @@ const Form: FC<FormProps> = ({
           name={"email"}
           formAction={formAction}
         />
-        <InputMUI
+        {/* <InputMUI
           label={"BirthDate"}
           type={"date"}
           placeholder={"birth date"}
-          name={"bithdate"}
+          name={"birthdate"}
           formAction={formAction}
-        />
+        /> */}
         <InputMUI
           label={"Phone Number"}
           placeholder={"phone number"}
@@ -161,6 +162,7 @@ const Form: FC<FormProps> = ({
           name={"role"}
           options={roles}
           formAction={formAction}
+          // value={formAction}
         />
         <FormGroup sx={{}}>
           <FormControlLabel
@@ -169,7 +171,7 @@ const Form: FC<FormProps> = ({
               <Checkbox
                 checked={formAction.values.isActive}
                 onChange={() => {
-                  formAction.setFieldValue("status", !formAction.values.isActive);
+                  formAction.setFieldValue("isActive", !formAction.values.isActive);
                 }}
               />
             }
