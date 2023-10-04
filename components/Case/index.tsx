@@ -1,6 +1,14 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import CardCrypto from "./CardCrypto";
+import { toast } from "react-toastify";
+
+import {
+  Case,
+  CASE_SOME_ERROR_ACCURED,
+} from "./Interface";
+import { getAllCase } from "requests/case";
+
 
 const dataButtons = [
   { butonHref: "", buttonText: "Bank" },
@@ -8,7 +16,7 @@ const dataButtons = [
   { butonHref: "", buttonText: "Card" },
 ];
 
-const dataCards = [
+const dataCards1 = [
   {
     team: "Maximoz Team",
     title: "Forex Finance BANK",
@@ -93,6 +101,36 @@ const dataCards = [
 ];
 
 const CaseAll = () => {
+  const [data, setData] = useState<any | undefined>(undefined);
+  useEffect(() => {
+      try {
+          getAllCase().then((data: any) => {
+            if (data.status === 0) {
+              toast.error(CASE_SOME_ERROR_ACCURED);
+            } else {
+              setData(data.Case); 
+            }
+            console.log(data.Case, 'allCase')
+          });
+        } catch (e: any) {
+          toast.error(e.message);
+        }
+    }, []);
+
+      if (!data) {
+    return <div>Loading...</div>; // Replace this with a loading indicator or message
+  }
+
+  const dataCards = data.map((item: any) => ({
+    team: "Crypto Team",
+    title: item.caseName,
+    priceFrom: item.priceFrom,
+    priceTo: item.priceTo,
+    text:
+      item.description,
+    type: item.caseMethod.methodName,
+    date: new Intl.DateTimeFormat("en-GB").format(new Date(item.createdAt)),
+  }));
   return (
     <>
       <Box id="case">

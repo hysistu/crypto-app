@@ -1,34 +1,53 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { CalendarIcon } from "@mui/x-date-pickers";
-import React from "react";
+import React, { useState, useEffect, useMemo} from "react";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-
-const dataCase = [
-  {
-    icon: <CalendarIcon stroke="#fff" fill="white" />,
-    type: "Total Case",
-    size: "37",
-  },
-  {
-    icon: <BadgeOutlinedIcon stroke="#fff" fill="white" />,
-    type: "Open Case",
-    size: "30",
-  },
-  {
-    icon: <PersonOutlineOutlinedIcon stroke="#fff" fill="white" />,
-    type: "Finnish Case",
-    size: "7",
-  },
-  {
-    icon: <EmailOutlinedIcon stroke="#fff" fill="white" />,
-    type: "Notification",
-    size: "8",
-  },
-];
+import { CaseStatistic } from "requests/case";
+import { toast } from "react-toastify";
 
 const CaseCard = () => {
+  const [caseStats, setCaseStats] = useState<any | undefined>(undefined);
+    useEffect(() => {
+    try {
+        CaseStatistic().then((data: any) => {
+          setCaseStats(data) 
+        });
+      } catch (e: any) {
+        toast.error(e.message);
+      }
+    },[]);
+
+  const dataCase = useMemo(() => {
+  if (caseStats) {
+    return [
+      {
+        icon: <CalendarIcon stroke="#fff" fill="white" />,
+        type: "Total Case",
+        size: caseStats.totalCase,
+      },
+      {
+        icon: <BadgeOutlinedIcon stroke="#fff" fill="white" />,
+        type: "Case in Progress",
+        size: caseStats.inProgres,
+      },
+      {
+        icon: <PersonOutlineOutlinedIcon stroke="#fff" fill="white" />,
+        type: "Case in Review",
+        size: caseStats.review,
+      },
+      {
+        icon: <EmailOutlinedIcon stroke="#fff" fill="white" />,
+        type: "Finished Case",
+        size: caseStats.finished,
+      },
+    ];
+  }
+  // Return a default value if caseStats is undefined
+  return [];
+}, [caseStats]);
+
   return (
     <Box id="case">
       <Grid container spacing={3}>

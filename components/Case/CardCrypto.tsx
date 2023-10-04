@@ -1,11 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-// import {
-//   User,
-//   USER_SOME_ERROR_ACCURED,
-//   userSchema,
-//   USER_UPDATED,
-// } from "./Interface";
 
 const CardCrypto = (cardData: any) => {
   return (
@@ -20,10 +14,10 @@ const CardCrypto = (cardData: any) => {
                   <Typography variant="h5">{entry.title}</Typography>
                   <Box className="price">
                     <Typography className="blue">
-                      $ {entry.bluePrice}
+                      $ {entry.priceFrom}
                     </Typography>
                     <Typography> -</Typography>
-                    <Typography className="red">$ {entry.redPrice}</Typography>
+                    <Typography className="red">$ {entry.priceTo}</Typography>
                   </Box>
                   <Typography>{entry.text}</Typography>
                 </Box>
